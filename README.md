@@ -22,38 +22,37 @@ manual page under `/boot/system/non-packaged/documentation/man/man1`. `PREFIX`,
 
 ## Usage
 
-Prefer an environment variable, password file, or inherited descriptor over a
-command-line password.
-
 ### SSH
 
+Connect with the password written directly in the command:
+
 ```sh
-SSHPASS='secret' sshpass -e ssh user@example.com
-sshpass -f ~/config/server.password ssh user@example.com
-sshpass -d 3 ssh user@example.com 3< ~/config/server.password
+sshpass -p 'secret' ssh user@example.com
 ```
 
 ### rsync over SSH
 
-Upload a local directory using `SSHPASS`:
+Upload the local `photos` folder to the server:
 
 ```sh
-SSHPASS='secret' rsync -av --rsh='sshpass -e ssh' ./photos/ user@example.com:/home/user/photos/
+sshpass -p 'secret' rsync -av ./photos/ user@example.com:/home/user/photos/
 ```
 
-Download a remote directory using a password file:
+Download the server's `photos` folder to your computer:
 
 ```sh
-rsync -av --rsh='sshpass -f /boot/home/config/settings/server.password ssh' \
-    user@example.com:/home/user/documents/ ./documents/
+sshpass -p 'secret' rsync -av user@example.com:/home/user/photos/ ./photos/
 ```
 
-An inherited file descriptor also works well in scripts because it avoids
-placing the password in the command line or environment:
+In these examples, replace `secret`, `user`, and `example.com` with your own
+password, username, and server address. The trailing `/` means "copy the files
+inside this folder."
+
+For a safer command that does not show the password in the process list, use
+the `SSHPASS` environment variable:
 
 ```sh
-rsync -av --rsh='sshpass -d 3 ssh' ./backup/ user@example.com:/srv/backup/ \
-    3< /boot/home/config/settings/server.password
+SSHPASS='secret' sshpass -e rsync -av user@example.com:/home/user/photos/ ./photos/
 ```
 
 For compatibility with the established utility, `-p`, `-f`, `-d`, `-e`, `-P`,
