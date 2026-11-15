@@ -1,6 +1,7 @@
 <p align="center">
   <img src="assets/sshpass.png" width="420" alt="sshpass icon">
 </p>
+
 # sshpass
 
 `sshpass` supplies a password to OpenSSH and other terminal-based programs in
