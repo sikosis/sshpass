@@ -79,8 +79,9 @@ possible because command-line arguments may be observable by other processes.
 
 ## License
 
-This Haiku version was written independently from scratch, so we're keeping
-things simple and releasing it under the [MIT License](LICENSE). The original
+This Haiku version was written independently from scratch and not a copy of another project's 
+source code. This project is released under the [MIT License](LICENSE). The original
 `sshpass` is a separate project released under the
 [GPL](https://github.com/kevinburke/sshpass/blob/master/LICENSE); we share its
 handy command-line interface, but none of its source code.
+
