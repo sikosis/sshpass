@@ -1,0 +1,88 @@
+.TH SSHPASS 1 "November 15, 2026" "sshpass 1.0" "User Commands"
+.SH NAME
+sshpass \- provide an SSH password non-interactively
+.SH SYNOPSIS
+.B sshpass
+.RB [ \-f " file" | \-d " fd" | \-p " password" | \-e ]
+.RB [ \-P " prompt" ]
+.RB [ \-v ]
+.I command
+.RI [ argument ...]
+.SH DESCRIPTION
+.B sshpass
+runs a command with a dedicated pseudo-terminal and supplies a password when
+the command displays a recognised password prompt. It is normally used with
+.BR ssh (1),
+which ordinarily obtains passwords from a controlling terminal.
+.PP
+By default, the recognised prompt substring is
+.BR assword: ,
+matching both "Password:" and "password:". If no password source option is
+given, the password is read from the first line of standard input.
+.SH OPTIONS
+.TP
+.BI \-p " password"
+Use the supplied command-line password. This is the least secure source because
+command-line arguments may be visible to other processes.
+.TP
+.BI \-f " file"
+Read the password from the first line of
+.IR file .
+.TP
+.BI \-d " fd"
+Read the password from the inherited file descriptor
+.IR fd .
+.TP
+.B \-e
+Read the password from the
+.B SSHPASS
+environment variable.
+.TP
+.BI \-P " prompt"
+Recognise
+.I prompt
+instead of the default password prompt substring.
+.TP
+.B \-v
+Write prompt-detection diagnostics to standard error.
+.TP
+.B \-h
+Display usage information and exit.
+.TP
+.B \-V
+Display version information and exit.
+.SH EXIT STATUS
+If no sshpass-specific error occurs, the command's exit status is returned.
+The following values describe errors detected by sshpass:
+.TP
+.B 1
+Invalid command-line argument.
+.TP
+.B 2
+Conflicting password sources.
+.TP
+.B 3
+General runtime error.
+.TP
+.B 4
+Unrecognised response from the command.
+.TP
+.B 5
+The password prompt appeared again, indicating an incorrect password.
+.TP
+.B 6
+The remote host key is unknown. sshpass exits without accepting it.
+.SH EXAMPLES
+.nf
+SSHPASS='secret' sshpass -e ssh user@example.com
+sshpass -f password.txt rsync -e ssh file user@example.com:/tmp/
+.fi
+.SH SECURITY
+Automating password authentication removes protections provided by interactive
+entry. Prefer SSH public-key authentication. For programmatic use, an anonymous
+pipe passed with
+.B \-d
+avoids exposing the password in process arguments or the environment.
+.SH SEE ALSO
+.BR ssh (1),
+.BR ssh_config (5)
