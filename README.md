@@ -2,14 +2,14 @@
   <img src="assets/sshpass.png" width="420" alt="sshpass icon">
 </p>
 
-```text
+<pre align="center">
 ███████╗███████╗██╗  ██╗██████╗  █████╗ ███████╗███████╗
 ██╔════╝██╔════╝██║  ██║██╔══██╗██╔══██╗██╔════╝██╔════╝
 ███████╗███████╗███████║██████╔╝███████║███████╗███████╗
 ╚════██║╚════██║██╔══██║██╔═══╝ ██╔══██║╚════██║╚════██║
 ███████║███████║██║  ██║██║     ██║  ██║███████║███████║
 ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝
-```
+</pre>
 
 `sshpass` supplies a password to OpenSSH and other terminal-based programs in
 non-interactive scripts. This implementation uses POSIX pseudo-terminals and is
