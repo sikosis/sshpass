@@ -15,10 +15,9 @@ the command displays a recognised password prompt. It is normally used with
 .BR ssh (1),
 which ordinarily obtains passwords from a controlling terminal.
 .PP
-By default, the recognised prompt substring is
-.BR assword: ,
-matching both "Password:" and "password:". If no password source option is
-given, the password is read from the first line of standard input.
+By default, both "Password:" and "password:" are recognised. If no password
+source option is given, the password is read from the first line of standard
+input.
 .SH OPTIONS
 .TP
 .BI \-p " password"
@@ -39,9 +38,9 @@ Read the password from the
 environment variable.
 .TP
 .BI \-P " prompt"
-Recognise
+Recognise only
 .I prompt
-instead of the default password prompt substring.
+instead of the normal "Password:" or "password:" prompt.
 .TP
 .B \-v
 Write prompt-detection diagnostics to standard error.

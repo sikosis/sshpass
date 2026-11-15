@@ -69,8 +69,10 @@ the `SSHPASS` environment variable:
 SSHPASS='secret' sshpass -e rsync -av user@example.com:/home/user/photos/ ./photos/
 ```
 
-For compatibility with the established utility, `-p`, `-f`, `-d`, `-e`, `-P`,
-`-v`, `-h`, and `-V` are supported. See `man sshpass` after installation.
+The normal `Password:` and `password:` prompts are recognised automatically.
+Use `-P` only when a program displays a different prompt. The `-p`, `-f`, `-d`,
+`-e`, `-v`, `-h`, and `-V` options are also supported. See `man sshpass` after
+installation.
 
 ## Security
 
