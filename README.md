@@ -11,6 +11,13 @@
 ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝
 </pre>
 
+<p align="center">
+  <img alt="Platform: Haiku" src="https://img.shields.io/badge/platform-Haiku-ffcc33?style=for-the-badge">
+  <img alt="Language: C" src="https://img.shields.io/badge/language-C-4b8bbe?style=for-the-badge">
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-62c462?style=for-the-badge">
+  <img alt="Dependencies: none" src="https://img.shields.io/badge/dependencies-none-9b59b6?style=for-the-badge">
+</p>
+
 `sshpass` supplies a password to OpenSSH and other terminal-based programs in
 non-interactive scripts. This implementation uses POSIX pseudo-terminals and is
 designed to build natively on Haiku without third-party libraries.
