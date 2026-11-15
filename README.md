@@ -1,7 +1,6 @@
 <p align="center">
   <img src="assets/sshpass.png" width="420" alt="sshpass icon">
 </p>
-
 # sshpass
 
 `sshpass` supplies a password to OpenSSH and other terminal-based programs in
@@ -23,12 +22,37 @@ manual page under `/boot/system/non-packaged/documentation/man/man1`. `PREFIX`,
 ## Usage
 
 Prefer an environment variable, password file, or inherited descriptor over a
-command-line password:
+command-line password.
+
+### SSH
 
 ```sh
 SSHPASS='secret' sshpass -e ssh user@example.com
 sshpass -f ~/config/server.password ssh user@example.com
 sshpass -d 3 ssh user@example.com 3< ~/config/server.password
+```
+
+### rsync over SSH
+
+Upload a local directory using `SSHPASS`:
+
+```sh
+SSHPASS='secret' rsync -av --rsh='sshpass -e ssh' ./photos/ user@example.com:/home/user/photos/
+```
+
+Download a remote directory using a password file:
+
+```sh
+rsync -av --rsh='sshpass -f /boot/home/config/settings/server.password ssh' \
+    user@example.com:/home/user/documents/ ./documents/
+```
+
+An inherited file descriptor also works well in scripts because it avoids
+placing the password in the command line or environment:
+
+```sh
+rsync -av --rsh='sshpass -d 3 ssh' ./backup/ user@example.com:/srv/backup/ \
+    3< /boot/home/config/settings/server.password
 ```
 
 For compatibility with the established utility, `-p`, `-f`, `-d`, `-e`, `-P`,
