@@ -11,8 +11,6 @@
 ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝
 ```
 
-# sshpass
-
 `sshpass` supplies a password to OpenSSH and other terminal-based programs in
 non-interactive scripts. This implementation uses POSIX pseudo-terminals and is
 designed to build natively on Haiku without third-party libraries.
