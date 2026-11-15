@@ -36,7 +36,7 @@ manual page under `/boot/system/non-packaged/documentation/man/man1`. `PREFIX`,
 
 ## Usage
 
-### SSH
+### 🟢 SSH
 
 Connect with the password written directly in the command:
 
@@ -44,7 +44,7 @@ Connect with the password written directly in the command:
 sshpass -p 'secret' ssh user@example.com
 ```
 
-### rsync over SSH
+### 🔵 rsync over SSH
 
 Upload the local `photos` folder to the server:
 
@@ -77,6 +77,10 @@ For compatibility with the established utility, `-p`, `-f`, `-d`, `-e`, `-P`,
 SSH keys are safer than stored passwords. In particular, avoid `-p` when
 possible because command-line arguments may be observable by other processes.
 
-# License
+## License
 
-This project is licensed under the MIT License.
+This Haiku version was written independently from scratch, so we're keeping
+things simple and releasing it under the [MIT License](LICENSE). The original
+`sshpass` is a separate project released under the
+[GPL](https://github.com/kevinburke/sshpass/blob/master/LICENSE); we share its
+handy command-line interface, but none of its source code.
