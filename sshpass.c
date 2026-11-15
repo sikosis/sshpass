@@ -51,7 +51,7 @@ usage(FILE *stream)
         "  -d fd        read password from an already open file descriptor\n"
         "  -p password  password on command line (visible to other users)\n"
         "  -e           read password from SSHPASS environment variable\n"
-        "  -P prompt    use a custom prompt instead of [Pp]assword:\n"
+        "  -P prompt    use a custom prompt instead of Password:/password:\n"
         "  -v           verbose diagnostics\n",
         program_name, program_name);
 }
