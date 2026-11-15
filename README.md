@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/sshpass.png" width="160" alt="sshpass icon">
+  <img src="assets/sshpass.png" width="420" alt="sshpass icon">
 </p>
 
 # sshpass
